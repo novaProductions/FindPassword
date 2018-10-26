@@ -14,7 +14,6 @@ maxLengthOfTestValue = 0
 def determineLargestValue():
     passwordDataMaxLength = textFileLongestValue(passwordDataText)
     englishDictDataMaxLength = textFileLongestValue(englishDictDataText)
-
     maxLengthList = [passwordDataMaxLength, englishDictDataMaxLength]
     return max(maxLengthList)
 
@@ -50,7 +49,9 @@ def writeContentOfCsv(writer, txtFilePath, isPasswordEval):
         rowString = row.strip()
         rowValues = {}
         for index, i in enumerate(rowString):
-            rowValues['fieldValue' + str(index)] = i
+            rowValues['fieldValue' + str(index)] = ord(i)
+        for s in range(len(rowValues),maxLengthOfTestValue):
+            rowValues['fieldValue' + str(s)] = 0
         rowValues['isPassword'] = isPasswordEval
         writer.writerow(rowValues)
 

@@ -1,11 +1,9 @@
 import csv
-import pandas as pd
-import numpy as np
 
 #englishDictDataText = '../englishData.txt'
 #englishDictDataText = '../google-10000-english.txt'
 englishDictDataText = '../unix-english.txt'
-allTestDataDataCsv = '../allTestDataData.csv'
+allTestDataCsv = '../allTestDataData.csv'
 passwordDataText = '../passwordData.txt'
 passwordDataText = '../rockyou.txt'
 #passwordDataCsv = '../passwordData.csv'
@@ -30,7 +28,7 @@ def textFileLongestValue(txtPath):
 
 def createNewCsv():
 
-    with open(allTestDataDataCsv, 'w', newline='') as csv_file:
+    with open(allTestDataCsv, 'w', newline='') as csv_file:
         fieldnames = []
         for i in range(0, maxLengthOfTestValue):
             fieldnames.append('fieldValue' + str(i))
@@ -38,8 +36,8 @@ def createNewCsv():
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
 
         writer.writeheader()
-        writeContentOfCsv(writer, englishDictDataText, 'false')
-        writeContentOfCsv(writer, passwordDataText, 'true')
+        writeContentOfCsv(writer, englishDictDataText, 0)
+        writeContentOfCsv(writer, passwordDataText, 1)
     csv_file.close()
 
 def writeContentOfCsv(writer, txtFilePath, isPasswordEval):
@@ -56,6 +54,7 @@ def writeContentOfCsv(writer, txtFilePath, isPasswordEval):
         writer.writerow(rowValues)
 
 if __name__ == '__main__':
+    print('Start Creating Test Data')
     maxLengthOfTestValue = determineLargestValue()
     createNewCsv()
 

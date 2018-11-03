@@ -68,7 +68,7 @@ def exampleLogicRegression():
 
 def myExample():
     allTestData = pd.read_csv(allTestDataCsv)
-    train_data1=[]
+    train_data=[]
 
     for row in allTestData.iterrows():
         temp=[]
@@ -76,13 +76,46 @@ def myExample():
         listWithLabel = data.tolist()
         del listWithLabel[-1]
         temp.append(listWithLabel)
-        train_data1.append(temp)
+        train_data.append(listWithLabel)
 
-    train_labels1 = allTestData.isPassword.values
-    print(train_labels1[0])
-    print(train_data1[0])
-    print("Training entries: {}, labels: {}".format(len(train_data1), len(train_labels1)))
+    train_labels = allTestData.isPassword.values
+    train_data = np.array(train_data)
+    print(train_labels[0])
+    print(train_data[0])
+    print("Training entries: {}, labels: {}".format(len(train_data), len(train_labels)))
 
+    char_size = 8231
+
+    model = keras.Sequential()
+    model.add(keras.layers.Embedding(char_size, 16))
+    model.add(keras.layers.GlobalAveragePooling1D())
+    model.add(keras.layers.Dense(16, activation=tf.nn.relu))
+    model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
+
+    model.summary()
+    model.compile(optimizer=tf.train.AdamOptimizer(),
+                  loss='binary_crossentropy',
+                  metrics=['accuracy'])
+
+    x_val = train_data[:10000]
+    partial_x_train = train_data[10000:500000]
+
+
+    y_val = train_labels[:10000]
+    partial_y_train = train_labels[10000:500000]
+
+    history = model.fit(partial_x_train,
+                        partial_y_train,
+                        epochs=10,
+                        batch_size=512,
+                        validation_data=(x_val, y_val),
+                        verbose=1)
+
+    test_data = train_data[500000:516685]
+    test_labels = train_labels[500000:516685]
+    results = model.evaluate(test_data, test_labels)
+
+    print(results)
 
 def createTrainingAndTestData():
     imdb = keras.datasets.imdb
@@ -122,8 +155,87 @@ def createTrainingAndTestData():
                                                        padding='post',
                                                        maxlen=256)
 
+    print(len(train_data[0]), len(train_data[1]))
+    print(train_data[0])
+
+    vocab_size = 10000
+
+    model = keras.Sequential()
+    model.add(keras.layers.Embedding(vocab_size, 16))
+    model.add(keras.layers.GlobalAveragePooling1D())
+    model.add(keras.layers.Dense(16, activation=tf.nn.relu))
+    model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
+
+    model.summary()
+
+    model.compile(optimizer=tf.train.AdamOptimizer(),
+                  loss='binary_crossentropy',
+                  metrics=['accuracy'])
+
+    x_val = train_data[:10000]
+    partial_x_train = train_data[10000:]
+    print(len(x_val))
+    print(x_val[0])
+    print(partial_x_train[:3])
+    print(len(partial_x_train))
+    print(partial_x_train[0])
+
+    y_val = train_labels[:10000]
+    partial_y_train = train_labels[10000:]
+
+    history = model.fit(partial_x_train,
+                        partial_y_train,
+                        epochs=40,
+                        batch_size=512,
+                        validation_data=(x_val, y_val),
+                        verbose=1)
+
+    results = model.evaluate(test_data, test_labels)
+
+    print(results)
+
+    acc = history.history['acc']
+    val_acc = history.history['val_acc']
+    loss = history.history['loss']
+    val_loss = history.history['val_loss']
+
+    epochs = range(1, len(acc) + 1)
+
+    # "bo" is for "blue dot"
+    plt.plot(epochs, loss, 'bo', label='Training loss')
+    # b is for "solid blue line"
+    plt.plot(epochs, val_loss, 'b', label='Validation loss')
+    plt.title('Training and validation loss')
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
+    plt.legend()
+
+    plt.show()
+
+    history_dict = history.history
+    history_dict.keys()
+
+    plt.clf()   # clear figure
+    acc_values = history_dict['acc']
+    val_acc_values = history_dict['val_acc']
+
+    plt.plot(epochs, acc, 'bo', label='Training acc')
+    plt.plot(epochs, val_acc, 'b', label='Validation acc')
+    plt.title('Training and validation accuracy')
+    plt.xlabel('Epochs')
+    plt.ylabel('Accuracy')
+    plt.legend()
+
+    plt.show()
+
 
 if __name__ == '__main__':
     print('Start Training Model')
-    createTrainingAndTestData()
+    myExample()
+    #createTrainingAndTestData()
     #exampleLogicRegression()
+    dict =[1,2,3,4,5]
+    print(dict)
+    print(dict[:2])
+    print(dict[2:])
+    print(dict)

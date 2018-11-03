@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="70281acf-880c-4f6b-b3a3-45895da41e63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/englishData.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/executable/MakeTestDataInCsv.py" beforeDir="false" afterPath="$PROJECT_DIR$/executable/MakeTestDataInCsv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/executable/TrainModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/executable/TrainModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/executable/allTestDataCsv/t10k-images-idx3-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/executable/allTestDataCsv/t10k-labels-idx1-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/executable/allTestDataCsv/train-images-idx3-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/executable/allTestDataCsv/train-labels-idx1-ubyte.gz" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,39 +79,43 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1511" />
+          <entry key="py" value="2338" />
           <entry key="txt" value="134" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="134" />
-          <entry key="Python" value="1511" />
+          <entry key="Python" value="2338" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/executable/MakeTestDataInCsv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="451">
+              <caret line="76" column="38" selection-start-line="76" selection-start-column="38" selection-end-line="76" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1541270808916" expanded="true" signature="2748:2750" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/executable/TrainModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="72" column="27" lean-forward="true" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
+            <state relative-caret-position="255">
+              <caret line="75" column="23" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="75" selection-end-column="37" />
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
-                <marker date="1541258909644" expanded="true" signature="257:2884" ph="..." />
-                <marker date="1541258909644" expanded="true" signature="2402:2884" ph="..." />
-                <marker date="1541258909644" expanded="true" signature="2916:4391" ph="..." />
+                <marker date="1541267939411" expanded="true" signature="257:3942" ph="..." />
+                <marker date="1541267939411" expanded="true" signature="2402:3942" ph="..." />
+                <marker date="1541267939411" expanded="true" signature="3974:7502" ph="..." />
               </folding>
             </state>
           </provider>
@@ -144,8 +152,8 @@
       <list>
         <option value="$PROJECT_DIR$/executable/testProject.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/executable/MakeTestDataInCsv.py" />
         <option value="$PROJECT_DIR$/executable/TrainModel.py" />
+        <option value="$PROJECT_DIR$/executable/MakeTestDataInCsv.py" />
       </list>
     </option>
   </component>
@@ -177,11 +185,6 @@
               <item name="testProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
-            <path>
-              <item name="testProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -191,7 +194,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541258909727" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541270836410" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -209,7 +212,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.TrainModel">
+  <component name="RunManager" selected="Python.MakeTestDataInCsv">
     <configuration name="MakeTestDataInCsv" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="testProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -295,8 +298,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.TrainModel" />
         <item itemvalue="Python.MakeTestDataInCsv" />
+        <item itemvalue="Python.TrainModel" />
         <item itemvalue="Python.testProject" />
         <item itemvalue="Python tests.Unittests in testProject" />
       </list>
@@ -328,13 +331,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50053304" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5010661" side_tool="true" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.3290993" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -368,22 +371,26 @@
     <entry file="file://$PROJECT_DIR$/allTestDataData.csv">
       <provider selected="true" editor-type-id="LargeFileEditor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/executable/MakeTestDataInCsv.py">
+    <entry file="file://$PROJECT_DIR$/executable/TrainModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="255">
+          <caret line="75" column="23" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="75" selection-end-column="37" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+            <marker date="1541267939411" expanded="true" signature="257:3942" ph="..." />
+            <marker date="1541267939411" expanded="true" signature="2402:3942" ph="..." />
+            <marker date="1541267939411" expanded="true" signature="3974:7502" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/executable/TrainModel.py">
+    <entry file="file://$PROJECT_DIR$/executable/MakeTestDataInCsv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="72" column="27" lean-forward="true" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
+        <state relative-caret-position="451">
+          <caret line="76" column="38" selection-start-line="76" selection-start-column="38" selection-end-line="76" selection-end-column="38" />
           <folding>
-            <element signature="e#1#20#0" expanded="true" />
-            <marker date="1541258909644" expanded="true" signature="257:2884" ph="..." />
-            <marker date="1541258909644" expanded="true" signature="2402:2884" ph="..." />
-            <marker date="1541258909644" expanded="true" signature="2916:4391" ph="..." />
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1541270808916" expanded="true" signature="2748:2750" ph="..." />
           </folding>
         </state>
       </provider>

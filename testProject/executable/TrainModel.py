@@ -2,95 +2,128 @@
 import pandas as pd
 import numpy as np
 import tensorflow as tf
+import matplotlib.pyplot as plt
+from tensorflow.examples.tutorials.mnist import input_data
+from tensorflow import keras
 
 allTestDataCsv = '../allTestDataData.csv'
 
-def createTrainingAndTestData():
-    print('Hi')
-    allTestData = pd.read_csv(allTestDataCsv)
-    columnHeaders = []
-    for i in range(0, len(allTestData.columns)-2):
-        columnHeaders.append('fieldValue' + str(i))
-    X = allTestData.drop(labels=columnHeaders, axis=1).values
-    y = allTestData.isPassword.values
+def exampleLogicRegression():
+    mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
 
-    seed=5
-    np.random.seed(seed)
-    tf.set_random_seed(seed)
+    # Parameters
+    learning_rate = 0.01
+    training_epochs = 25
+    batch_size = 100
+    display_step = 1
 
-    # set replace=False, Avoid double sampling
-    train_index = np.random.choice(len(X), round(len(X) * 0.8), replace=False)
-    test_index = np.array(list(set(range(len(X))) - set(train_index)))
-    train_X = X[train_index]
-    train_y = y[train_index]
-    test_X = X[test_index]
-    test_y = y[test_index]
+    # tf Graph Input
+    x = tf.placeholder(tf.float32, [None, 784]) # mnist data image of shape 28*28=784
+    y = tf.placeholder(tf.float32, [None, 10]) # 0-9 digits recognition => 10 classes
 
-    # Normalized processing, must be placed after the data set segmentation,
-    # otherwise the test set will be affected by the training set
-    train_X = min_max_normalized(train_X)
-    test_X = min_max_normalized(test_X)
+    # Set model weights
+    W = tf.Variable(tf.zeros([784, 10]))
+    b = tf.Variable(tf.zeros([10]))
 
-    A = tf.Variable(tf.random_normal(shape=[len(allTestData.columns)-1, 1]))
-    b = tf.Variable(tf.random_normal(shape=[1, 1]))
+    # Construct model
+    pred = tf.nn.softmax(tf.matmul(x, W) + b) # Softmax
+
+    # Minimize error using cross entropy
+    cost = tf.reduce_mean(-tf.reduce_sum(y*tf.log(pred), reduction_indices=1))
+    # Gradient Descent
+    optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
+
+    # Initialize the variables (i.e. assign their default value)
     init = tf.global_variables_initializer()
-    sess = tf.Session()
-    sess.run(init)
 
-    data = tf.placeholder(dtype=tf.float32, shape=[None, len(allTestData.columns)-1])
-    target = tf.placeholder(dtype=tf.float32, shape=[None, 1])
+    # Start training
+    with tf.Session() as sess:
 
-    mod = tf.matmul(data, A) + b
+        # Run the initializer
+        sess.run(init)
 
-    learning_rate = 0.003
-    batch_size = 40
-    iter_num = 1500
-    loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=mod, labels=target))
+        # Training cycle
+        for epoch in range(training_epochs):
+            avg_cost = 0.
+            total_batch = int(mnist.train.num_examples/batch_size)
+            # Loop over all batches
+            for i in range(total_batch):
+                batch_xs, batch_ys = mnist.train.next_batch(batch_size)
+                # Run optimization op (backprop) and cost op (to get loss value)
+                _, c = sess.run([optimizer, cost], feed_dict={x: batch_xs,
+                                                              y: batch_ys})
+                # Compute average loss
+                avg_cost += c / total_batch
+            # Display logs per epoch step
+            if (epoch+1) % display_step == 0:
+                print("Epoch:", '%04d' % (epoch+1), "cost=", "{:.9f}".format(avg_cost))
 
-    opt = tf.train.GradientDescentOptimizer(learning_rate)
-    goal = opt.minimize(loss)
+        print("Optimization Finished!")
 
-    # Define the accuracy
-    # The default threshold is 0.5, rounded off directly
-    prediction = tf.round(tf.sigmoid(mod))
-    # Bool into float32 type
-    correct = tf.cast(tf.equal(prediction, target), dtype=tf.float32)
-    # Average
-    accuracy = tf.reduce_mean(correct)
-    # End of the definition of the model framework
+        # Test model
+        correct_prediction = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
+        # Calculate accuracy
+        accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+        print("Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
 
-    loss_trace = []
-    train_acc = []
-    test_acc = []
+def myExample():
+    allTestData = pd.read_csv(allTestDataCsv)
+    train_data1=[]
 
-    for epoch in range(iter_num):
-    #Generate random batch index
-        batch_index = np.random.choice(len(train_X), size=batch_size)
-        batch_train_X = train_X[batch_index]
-        batch_train_y = np.matrix(train_y[batch_index]).T
-        print(batch_train_X.shape)
-        print(batch_train_y.shape)
-        sess.run(goal, feed_dict={data: batch_train_X, target: batch_train_y})
-        temp_loss = sess.run(loss, feed_dict={data: batch_train_X, target: batch_train_y})
-        # convert into a matrix, and the shape of the placeholder to correspond
-        temp_train_acc = sess.run(accuracy, feed_dict={data: train_X, target: np.matrix(train_y).T})
-        temp_test_acc = sess.run(accuracy, feed_dict={data: test_X, target: np.matrix(test_y).T})
-        # recode the result
-        loss_trace.append(temp_loss)
-        train_acc.append(temp_train_acc)
-        test_acc.append(temp_test_acc)
-        # output
-        if (epoch + 1) % 300 == 0:
-            print('epoch: {:4d} loss: {:5f} train_acc: {:5f} test_acc: {:5f}'.format(epoch + 1, temp_loss,
-                                                                                     temp_train_acc, temp_test_acc))
+    for row in allTestData.iterrows():
+        temp=[]
+        index, data = row
+        listWithLabel = data.tolist()
+        del listWithLabel[-1]
+        temp.append(listWithLabel)
+        train_data1.append(temp)
 
-# Define the normalized function
-def min_max_normalized(data):
-    col_max = np.max(data, axis=0)
-    col_min = np.min(data, axis=0)
-    return np.divide(data - col_min, col_max - col_min)
+    train_labels1 = allTestData.isPassword.values
+    print(train_labels1[0])
+    print(train_data1[0])
+    print("Training entries: {}, labels: {}".format(len(train_data1), len(train_labels1)))
+
+
+def createTrainingAndTestData():
+    imdb = keras.datasets.imdb
+
+    (train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=10000)
+    '''
+    print("Training entries: {}, labels: {}".format(len(train_data), len(train_labels)))
+    print(train_data[1])
+    print(train_labels[1])
+    print(train_labels)
+    print(train_data)
+    len(train_data[0]), len(train_data[1])
+    '''
+
+    # A dictionary mapping words to an integer index
+    word_index = imdb.get_word_index()
+
+    # The first indices are reserved
+    word_index = {k:(v+3) for k,v in word_index.items()}
+    word_index["<PAD>"] = 0
+    word_index["<START>"] = 1
+    word_index["<UNK>"] = 2  # unknown
+    word_index["<UNUSED>"] = 3
+
+    reverse_word_index = dict([(value, key) for (key, value) in word_index.items()])
+
+    def decode_review(text):
+        return ' '.join([reverse_word_index.get(i, '?') for i in text])
+
+    train_data = keras.preprocessing.sequence.pad_sequences(train_data,
+                                                            value=word_index["<PAD>"],
+                                                            padding='post',
+                                                            maxlen=256)
+
+    test_data = keras.preprocessing.sequence.pad_sequences(test_data,
+                                                       value=word_index["<PAD>"],
+                                                       padding='post',
+                                                       maxlen=256)
 
 
 if __name__ == '__main__':
     print('Start Training Model')
     createTrainingAndTestData()
+    #exampleLogicRegression()

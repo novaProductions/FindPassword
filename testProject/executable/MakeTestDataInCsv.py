@@ -1,12 +1,10 @@
 import csv
 
-#englishDictDataText = '../englishData.txt'
 #englishDictDataText = '../google-10000-english.txt'
 englishDictDataText = '../unix-english.txt'
 allTestDataCsv = '../allTestDataData.csv'
 passwordDataText = '../passwordData.txt'
 passwordDataText = '../rockyou.txt'
-#passwordDataCsv = '../passwordData.csv'
 maxLengthOfTestValue = 0
 
 def determineLargestValue():

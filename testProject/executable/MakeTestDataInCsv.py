@@ -3,11 +3,12 @@ import pandas as pd
 
 #englishDictDataText = '../google-10000-english.txt'
 englishDictDataText = '../unix-english.txt'
+#englishDictDataText = '../Hi.txt'
 allTestDataCsv = '../allTestData.csv'
 trainingDataCsv = '../trainingDataCsv.csv'
 validationDataCsv = '../validationDataCsv.csv'
 testDataCsv = '../testDataCsv.csv'
-passwordDataText = '../passwordData.txt'
+#passwordDataText = '../password123.txt'
 passwordDataText = '../rockyou.txt'
 maxLengthOfTestValue = 0
 
@@ -45,37 +46,36 @@ def createAllTestDataCsv():
 def fromTxtToCsv(writer, txtFilePath, isPasswordEval):
     with open(txtFilePath,"r", encoding="utf8") as txt_file:
         dataFromTxtFile = txt_file.readlines()
-    for row in dataFromTxtFile:
-        rowString = row.strip()
-        rowValues = {}
-        for index, i in enumerate(rowString):
-            rowValues['fieldValue' + str(index)] = ord(i)
-        for s in range(len(rowValues),maxLengthOfTestValue):
-            rowValues['fieldValue' + str(s)] = 0
-        rowValues['isPassword'] = isPasswordEval
-        writer.writerow(rowValues)
+    for indexTxtFile, row in enumerate(dataFromTxtFile):
+        if((indexTxtFile % 4 == 0) & (isPasswordEval == 1)):
+            writeRowFromTxtToCsv(row, isPasswordEval, writer)
+        elif(isPasswordEval == 0):
+            writeRowFromTxtToCsv(row, isPasswordEval, writer)
+
+def writeRowFromTxtToCsv(row, isPasswordEval, writer):
+    rowString = row.strip()
+    rowValues = {}
+    for index, i in enumerate(rowString):
+        rowValues['fieldValue' + str(index)] = ord(i)
+    for s in range(len(rowValues),maxLengthOfTestValue):
+        rowValues['fieldValue' + str(s)] = 0
+    rowValues['isPassword'] = isPasswordEval
+    writer.writerow(rowValues)
+
 
 def createCsvFilesForTestingAndTraining():
     allTestData = pd.read_csv(allTestDataCsv)
     trainingDataList =[]
-    notTrainingDataList = []
-    validationTrainingDataList = []
     testDataList = []
     for row in allTestData.iterrows():
         index, data = row
         listWithLabel = data.tolist()
-        if(index % 2 != 0):
+        if(index % 4 != 0):
             trainingDataList.append(listWithLabel)
         else:
-            notTrainingDataList.append(listWithLabel)
-    for index, val in enumerate(notTrainingDataList):
-        if(index % 2 != 0):
-            validationTrainingDataList.append(val)
-        else:
-            testDataList.append(val)
+            testDataList.append(listWithLabel)
 
     fromListToCvs(trainingDataList, trainingDataCsv)
-    fromListToCvs(validationTrainingDataList, validationDataCsv)
     fromListToCvs(testDataList, testDataCsv)
 
 def fromListToCvs(listOfRows, pathToCsv):

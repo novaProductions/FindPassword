@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
-from tensorflow.examples.tutorials.mnist import input_data
 from tensorflow import keras
 
 allTestDataCsv = '../allTestData.csv'
@@ -27,9 +26,6 @@ def plot_value_array(i, predictions_array, true_label):
     thisplot[true_label].set_color('blue')
 
 def basicClassification():
-    class_names = ['english', 'password']
-
-    char_size = 8231
 
     model = keras.Sequential()
     model.add(keras.layers.Dense(128, activation=tf.nn.relu))
@@ -39,10 +35,17 @@ def basicClassification():
     model.compile(loss='sparse_categorical_crossentropy',
                   optimizer=tf.train.AdamOptimizer(), metrics=['accuracy'])
 
+
     model.fit(train_data, train_labels, epochs=10, batch_size=100)
 
     test_loss, test_acc = model.evaluate(test_data, test_labels)
     print('Test accuracy:', test_acc)
+
+    model_json = model.to_json()
+    with open("../model.json", "w") as json_file:
+        json_file.write(model_json)
+
+    model.save_weights("../model.h5")
 
     englishList = []
     english = [72,105,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]

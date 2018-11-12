@@ -5,7 +5,6 @@ basePath = '../singleWordEvaluation/data/'
 englishDictDataText = basePath + 'unix-english.txt'
 allTestDataCsv = basePath + 'allTestData.csv'
 trainingDataCsv = basePath + 'trainingDataCsv.csv'
-validationDataCsv = basePath + 'validationDataCsv.csv'
 testDataCsv = basePath + 'testDataCsv.csv'
 passwordDataText = basePath + 'rockyou.txt'
 maxLengthOfTestValue = 0

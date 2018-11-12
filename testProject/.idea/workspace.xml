@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70281acf-880c-4f6b-b3a3-45895da41e63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/keyLogLineEvaluation/TrainModelKl.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyLogLineEvaluation/MakeTestDataInCsvKl.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyLogLineEvaluation/MakeTestDataInCsvKl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyLogLineEvaluation/data/allTestData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/keyLogLineEvaluation/data/allTestData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyLogLineEvaluation/data/nonPasswordLines.txt" beforeDir="false" afterPath="$PROJECT_DIR$/keyLogLineEvaluation/data/nonPasswordLines.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyLogLineEvaluation/data/passwordLines.txt" beforeDir="false" afterPath="$PROJECT_DIR$/keyLogLineEvaluation/data/passwordLines.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyLogLineEvaluation/data/rockyou.txt" beforeDir="false" afterPath="$PROJECT_DIR$/keyLogLineEvaluation/data/rockyou.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyLogLineEvaluation/data/testDataCsv.csv" beforeDir="false" afterPath="$PROJECT_DIR$/keyLogLineEvaluation/data/testDataCsv.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyLogLineEvaluation/data/trainingDataCsv.csv" beforeDir="false" afterPath="$PROJECT_DIR$/keyLogLineEvaluation/data/trainingDataCsv.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyLogLineEvaluation/data/usernames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/keyLogLineEvaluation/data/usernames.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RunModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/RunModel.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,7 +69,7 @@
           <entry key="checkpoint" value="2" />
           <entry key="csv" value="2" />
           <entry key="json" value="1" />
-          <entry key="py" value="16" />
+          <entry key="py" value="18" />
           <entry key="txt" value="20" />
         </counts>
       </usages-collector>
@@ -85,27 +77,27 @@
         <counts>
           <entry key="JSON" value="1" />
           <entry key="PLAIN_TEXT" value="24" />
-          <entry key="Python" value="16" />
+          <entry key="Python" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="253" />
-          <entry key="py" value="10565" />
+          <entry key="py" value="10863" />
           <entry key="txt" value="152" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="405" />
-          <entry key="Python" value="10565" />
+          <entry key="Python" value="10863" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/MakeTestDataInCsvKl.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="215">
@@ -117,16 +109,6 @@
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/rockyou.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/trainingDataCsv.csv">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -165,10 +147,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/singleWordEvaluation/MakeTestDataInCsvSw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+            <state relative-caret-position="383">
+              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RunModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+              <folding>
+                <marker date="1541987674703" expanded="true" signature="1313:1331" ph="..." />
               </folding>
             </state>
           </provider>
@@ -177,8 +171,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/TrainModelKl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="661">
-              <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+            <state relative-caret-position="253">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/singleWordEvaluation/TrainModelSw.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -214,20 +217,20 @@
         <option value="$PROJECT_DIR$/executable/singleWordEvaluation/MakeTestDataInCsv.py" />
         <option value="$PROJECT_DIR$/executable/singleWordEvaluation/RunModel.py" />
         <option value="$PROJECT_DIR$/singleWordEvaluation/TrainModel.py" />
-        <option value="$PROJECT_DIR$/RunModel.py" />
         <option value="$PROJECT_DIR$/keyLogLineEvaluation/MakeTestDataInCsv.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/singleWordEvaluation/MakeTestDataInCsvSw.py" />
-        <option value="$PROJECT_DIR$/keyLogLineEvaluation/TrainModelKl.py" />
         <option value="$PROJECT_DIR$/keyLogLineEvaluation/MakeTestDataInCsvKl.py" />
+        <option value="$PROJECT_DIR$/keyLogLineEvaluation/TrainModelKl.py" />
+        <option value="$PROJECT_DIR$/RunModel.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="274" />
-    <option name="width" value="3860" />
-    <option name="height" value="1100" />
+    <option name="x" value="1363" />
+    <option name="y" value="83" />
+    <option name="width" value="2297" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -241,17 +244,6 @@
             <path>
               <item name="testProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="testProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="testProject" type="462c0819:PsiDirectoryNode" />
-              <item name="keyLogLineEvaluation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="testProject" type="462c0819:PsiDirectoryNode" />
-              <item name="keyLogLineEvaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testProject" type="b2602c69:ProjectViewProjectNode" />
@@ -277,7 +269,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541985799891" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541988239130" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -307,7 +299,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.MakeTestDataInCsvKl">
+  <component name="RunManager" selected="Python.RunModel">
     <configuration name="MakeTestDataInCsvKl" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FindPassword" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -422,9 +414,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.MakeTestDataInCsvKl" />
-        <item itemvalue="Python.TrainModelKl" />
         <item itemvalue="Python.RunModel" />
+        <item itemvalue="Python.TrainModelKl" />
+        <item itemvalue="Python.MakeTestDataInCsvKl" />
         <item itemvalue="Python.MakeTestDataInCsvSw" />
         <item itemvalue="Python.TrainModel (2)" />
       </list>
@@ -447,7 +439,7 @@
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15724947" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15724947" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -456,7 +448,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -494,22 +486,8 @@
     <entry file="file://$PROJECT_DIR$/singleWordEvaluation/data/rockyou.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/singleWordEvaluation/TrainModelSw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/singleWordEvaluation/data/unix-english.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RunModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/rockyou.txt">
       <provider selected="true" editor-type-id="text-editor" />
@@ -555,23 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/singleWordEvaluation/MakeTestDataInCsvSw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/TrainModelKl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/MakeTestDataInCsvKl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
@@ -580,6 +541,40 @@
             <element signature="e#0#10#0" expanded="true" />
             <marker date="1541986503334" expanded="true" signature="2583:10379" ph="..." />
             <marker date="1541986503334" expanded="true" signature="7501:10379" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/TrainModelKl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/singleWordEvaluation/MakeTestDataInCsvSw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/singleWordEvaluation/TrainModelSw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RunModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+          <folding>
+            <marker date="1541987674703" expanded="true" signature="1313:1331" ph="..." />
           </folding>
         </state>
       </provider>

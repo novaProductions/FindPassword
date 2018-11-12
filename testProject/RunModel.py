@@ -7,6 +7,10 @@ basePathSingleWord = 'singleWordEvaluation/data/'
 modelH5SingleWord = basePathSingleWord + 'model.h5'
 modelJsonSingleWord = basePathSingleWord + 'model.json'
 
+basePathLogLine = 'keyLogLineEvaluation/data/'
+modelH5LogLine = basePathLogLine + 'model.h5'
+modelJsonLogLine = basePathLogLine + 'model.json'
+
 def evaluateSingleWord():
 
     json_file = open(modelJsonSingleWord, 'r')
@@ -34,10 +38,14 @@ def evaluateSingleWord():
         resultLabelUserInputSingleTxt.set("This is a password")
     root.update()
 
+def evaluateLogLine():
+    print('Hi')
+
 root = Tk()
 
 
 root.title("Determine Passwords")
+#Validate a single word as password or not
 Label(root, text="Enter in single text/phrase to if is a password:").grid(row=0, sticky=W)
 
 userInputSingleTxt = Entry(root)
@@ -48,6 +56,19 @@ Label(root, text="Results").grid(row=2, column=0, sticky=W)
 resultLabelUserInputSingleTxt = StringVar()
 resultValueUserInputSingleTxt = Label(root, textvariable=resultLabelUserInputSingleTxt)
 resultValueUserInputSingleTxt.grid(row=2, column=1, sticky=W)
+
+#Validate a single log line if it has a password or not
+Label(root, text="Enter in single keylog line to if contains a password:").grid(row=3, sticky=W)
+
+userInputLogLine = Entry(root)
+userInputLogLine.grid(row=4,column=0, sticky=W)
+Button(root, text="Submit", command=evaluateLogLine).grid(row=4, column=1, sticky=W)
+
+Label(root, text="Results").grid(row=5, column=0, sticky=W)
+resultLabelUserInputLogLine = StringVar()
+resultValueUserInputLogLine = Label(root, textvariable=resultLabelUserInputLogLine)
+resultValueUserInputLogLine.grid(row=5, column=1, sticky=W)
+
 
 root.mainloop()
 

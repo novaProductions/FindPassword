@@ -42,7 +42,7 @@ def createRandomNonPasswordKeyLog(rawDataTxtPath, processDataTxtPath):
                     rawDataToBeAdded = rawDataToBeAddedFirstChunk + rawDataToBeAddedSecondChunk + rawDataToBeAddedThirdChunk;
                     rowsAdded = rowsAdded + 1
                     processDataTxt.write(rawDataToBeAdded)
-                    if(rowsAdded == 16000):
+                    if(rowsAdded == 32000):
                         break
         processDataTxt.close()
     rawDataTxtFile.close()

@@ -47,11 +47,10 @@ def evaluateLogLine():
     model.compile(loss='sparse_categorical_crossentropy',
                   optimizer=tf.train.AdamOptimizer(), metrics=['accuracy'])
     english = []
-    for index, i in enumerate(userInputLogLine.get()):
+    for index, i in enumerate(convertWordsIntoNumbers(userInputLogLine.get())):
         english.append(ord(i))
-    for s in range(len(english),193):
+    for s in range(len(english),53):
         english.append(0)
-
     englishList = []
     englishList.append(english)
     englishListNp = np.array(englishList)
@@ -63,6 +62,27 @@ def evaluateLogLine():
     else:
         resultLabelUserInputLogLine.set("Does contain password")
     root.update()
+
+def convertWordsIntoNumbers(originalString):
+    newString = ""
+    addToString = False
+    countTheGap=0
+    for i in originalString:
+
+        if i == "<":
+            addToString=True
+            newString = newString + str(countTheGap)
+            countTheGap=0
+
+        if addToString == True:
+            newString = newString + i
+        else:
+            countTheGap = countTheGap+1
+
+        if i == ">":
+            addToString=False
+
+    return newString + '\n'
 
 root = Tk()
 

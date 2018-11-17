@@ -29,7 +29,7 @@ def basicClassification():
                   optimizer=tf.train.AdamOptimizer(), metrics=['accuracy'])
 
 
-    model.fit(train_data, train_labels, epochs=10, batch_size=100)
+    model.fit(train_data, train_labels, epochs=5, batch_size=100)
 
     test_loss, test_acc = model.evaluate(test_data, test_labels)
     print('Test accuracy:', test_acc)

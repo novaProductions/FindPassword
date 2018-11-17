@@ -3,7 +3,6 @@ import random
 import pandas as pd
 
 basePath = '../keyLogLineEvaluation/data/'
-rawWordsTxtPath = basePath + "rawWords.txt"
 processNonPasswordKeyLogPath = basePath + 'nonPasswordLines.txt'
 userNameTxtPath =  basePath + 'usernames.txt'
 passwordTxtPath =  basePath + 'rockyou.txt'
@@ -13,97 +12,74 @@ trainingDataCsv = basePath + 'trainingDataCsv.csv'
 testDataCsv = basePath + 'testDataCsv.csv'
 maxLengthOfTestValue = 0
 
-def createRandomNonPasswordKeyLog(rawDataTxtPath, processDataTxtPath):
+def createRandomNonPasswordKeyLog(processDataTxtPath):
 
     meterpeterDict = {1:" <Back> ", 2 : " <Tab> ", 3: " <Return>"}
-    with open(rawDataTxtPath, "r", encoding="utf8") as rawDataTxtFile:
-        with open(processDataTxtPath,"w", encoding="utf8") as processDataTxt:
-            list = rawDataTxtFile.readlines()
-            rowsAdded = 0
-            for row in list:
-                if(len(row) > 50):
+    with open(processDataTxtPath,"w", encoding="utf8") as processDataTxt:
+        for index in range(0,414712):
+            if(index % 6 == 0):
+                processDataTxt.write(convertWordsIntoNumbers("A"*random.randint(0,20) + meterpeterDict[random.randint(1,3)] + "A"*random.randint(5,20) + meterpeterDict[random.randint(1,3)]))
+            elif(index % 5 != 0):
+                processDataTxt.write(convertWordsIntoNumbers("A"*random.randint(0,50) + meterpeterDict[2] + "A"*random.randint(30,100) + meterpeterDict[3] + "A"*random.randint(0,50)))
+            else:
+                firstValue = meterpeterDict[random.randint(1,3)];
+                secondValue = meterpeterDict[random.randint(1,3)];
+                thirdValue = meterpeterDict[random.randint(1,3)];
 
-                    firstValue = meterpeterDict[random.randint(1,3)];
-                    secondValue = meterpeterDict[random.randint(1,3)];
-                    thirdValue = meterpeterDict[random.randint(1,3)];
+                numberOfFirstValue = random.randint(0,1);
+                numberOfSecondValue = random.randint(0,2);
+                numberOfThirdValue = random.randint(0,1);
 
-                    numberOfFirstValue = random.randint(0,3);
-                    numberOfSecondValue = random.randint(0,3);
-                    numberOfThirdValue = random.randint(0,3);
+                rawDataToBeAddedFirstChunk = "A"*random.randint(0,50) + firstValue * numberOfFirstValue + "A"*random.randint(0,50);
+                rawDataToBeAddedSecondChunk = "A"*random.randint(0,50) + secondValue * numberOfSecondValue + "A"*random.randint(0,50);
+                rawDataToBeAddedThirdChunk = "A"*random.randint(0,50) + thirdValue * numberOfThirdValue + "A"*random.randint(0,50) ;
+                rawDataToBeAdded = rawDataToBeAddedFirstChunk + rawDataToBeAddedSecondChunk + rawDataToBeAddedThirdChunk;
 
-                    thirdOfRowLength = int(len(row)/3);
-                    firstValuePostion = random.randint(0,thirdOfRowLength);
-                    secondValuePostion = random.randint(thirdOfRowLength +1,thirdOfRowLength * 2);
-                    thirdValuePostion = random.randint(thirdOfRowLength*2+1,thirdOfRowLength * 3);
+                processDataTxt.write(convertWordsIntoNumbers(rawDataToBeAdded))
 
-                    rawDataToBeAddedFirstChunk = row[0:firstValuePostion].strip() + firstValue * numberOfFirstValue + row[firstValuePostion+1:thirdOfRowLength].strip();
-                    rawDataToBeAddedSecondChunk = row[thirdOfRowLength+1:secondValuePostion].strip() + secondValue * numberOfSecondValue + row[secondValuePostion+1:thirdOfRowLength*2].strip();
-                    rawDataToBeAddedThirdChunk = row[thirdOfRowLength*2+1:thirdValuePostion].strip() + thirdValue * numberOfThirdValue + row[thirdValuePostion+1:len(row)-1].strip() + '\n';
-                    rawDataToBeAdded = rawDataToBeAddedFirstChunk + rawDataToBeAddedSecondChunk + rawDataToBeAddedThirdChunk;
-                    rowsAdded = rowsAdded + 1
-                    processDataTxt.write(rawDataToBeAdded)
-                    #processDataTxt.write(row)
-                    if(rowsAdded == 32000):
-                        break
-        processDataTxt.close()
-    rawDataTxtFile.close()
+    processDataTxt.close()
 
-def createRandomPasswordKeyLog(userNameTxtPath, passwordTxtPath, rawWordsTxtPath, processPasswordKeyLogPath):
+def createRandomPasswordKeyLog(userNameTxtPath, passwordTxtPath, processPasswordKeyLogPath):
     with open(userNameTxtPath, "r", encoding="utf8") as userNameTxtFile:
         with open(passwordTxtPath,"r", encoding="utf8") as passwordTxtFile:
-            with open(rawWordsTxtPath, "r", encoding="utf8") as rawWordsTxtFile:
-                with open(processPasswordKeyLogPath,"w", encoding="utf8") as processPasswordKeyLogFile:
-                    userNames = userNameTxtFile.readlines()
-                    passwords = passwordTxtFile.readlines()
-                    rawWords = rawWordsTxtFile.readlines()
+            with open(processPasswordKeyLogPath,"w", encoding="utf8") as processPasswordKeyLogFile:
+                userNames = userNameTxtFile.readlines()
+                passwords = passwordTxtFile.readlines()
 
-                    maxLengthList = [len(userNames), len(passwords)]
-                    maxNumberOfTestCases = min(maxLengthList)
-                    rowItemsUsed = []
+                maxLengthList = [len(userNames), len(passwords)]
+                maxNumberOfTestCases = min(maxLengthList)
 
-
-                    for index in range(0,maxNumberOfTestCases-1):
+                for index in range(0,maxNumberOfTestCases-1):
+                    if(index % 5 != 0):
                         meterpeterDict = {1:" <Back> ", 2 : " <Tab> ", 3: " <Return> "}
                         passwordMeterpeterDict = {1:userNames[index].strip()+passwords[index].strip()+ " <Return> "}
                         passwordMeterpeterDict[2] = userNames[index].strip() + " <Tab> " + passwords[index].strip() + " <Return> "
                         passwordMeterpeterDict[3] = userNames[index][0:int(len(userNames[index])/2)].strip() + " <Back> <Back> " + userNames[index][int(len(userNames[index])/2): int(len(userNames[index]))].strip()+ " <Tab> " + passwords[index].strip() + " <Return> "
                         passwordMeterpeterDict[4] = userNames[index].strip()+ " <Tab> " + passwords[index][0:int(len(passwords[index])/2)].strip() + " <Back> <Back> "+ passwords[index][int(len(passwords[index])/2):int(len(passwords[index]))].strip()+ " <Return> "
                         passwordInfirstOrSecondSection = random.randint(0,2)
-                        if(len(rawWords[index]) > 50):
-                            lengthOfRawWord = int(len(rawWords[index])/3)
-                            postionForItem1 = random.randint(0, lengthOfRawWord)
-                            postionForItem2 = random.randint(lengthOfRawWord+1,lengthOfRawWord*2)
-                            postionForItem3 = random.randint(lengthOfRawWord*2+1,len(rawWords[index]))
 
-                            item1 = ''
-                            item2 = ''
-                            item3 = ''
+                        if(passwordInfirstOrSecondSection==0):
+                            item1= str(passwordMeterpeterDict[random.randint(1,4)])
+                            item2= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
+                            item3= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
+                        elif(passwordInfirstOrSecondSection==1):
+                            item2= str(passwordMeterpeterDict[random.randint(1,4)])
+                            item1= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
+                            item3= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
+                        elif(passwordInfirstOrSecondSection==2):
+                            item3= str(passwordMeterpeterDict[random.randint(1,4)])
+                            item1= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
+                            item2= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
 
-                            if(passwordInfirstOrSecondSection==0):
-                                item1= str(passwordMeterpeterDict[random.randint(1,4)])
-                                item2= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,3)
-                                item3= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,3)
-                            elif(passwordInfirstOrSecondSection==1):
-                                item2= str(passwordMeterpeterDict[random.randint(1,4)])
-                                item1= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,3)
-                                item3= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,3)
-                            elif(passwordInfirstOrSecondSection==2):
-                                item3= str(passwordMeterpeterDict[random.randint(1,4)])
-                                item1= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,3)
-                                item2= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,3)
-
-                            processedPasswordLineChunk1 = rawWords[index][0:postionForItem1].strip() + item1 + rawWords[index][postionForItem1+1: lengthOfRawWord].strip()
-                            processedPasswordLineChunk2 = rawWords[index][lengthOfRawWord+1:postionForItem2].strip() + item2 + rawWords[index][postionForItem2+1: lengthOfRawWord*2].strip()
-                            processedPasswordLineChunk3 = rawWords[index][lengthOfRawWord*2+1:postionForItem3].strip() + item3 + rawWords[index][postionForItem3+1: len(rawWords[index])].strip() + '\n'
+                            processedPasswordLineChunk1 = "A"*random.randint(0,50) + item1 + "A"*random.randint(0,50)
+                            processedPasswordLineChunk2 = "A"*random.randint(0,50) + item2 + "A"*random.randint(0,50)
+                            processedPasswordLineChunk3 = "A"*random.randint(0,50) + item3 + "A"*random.randint(0,50)
                             processedPasswordLine =  processedPasswordLineChunk1 + processedPasswordLineChunk2 + processedPasswordLineChunk3
-                            rowItemsUsed.append(rawWords[index].strip())
-                            processPasswordKeyLogFile.write(processedPasswordLine);
-                            #processPasswordKeyLogFile.write(rawWords[index]);
-
-
+                            processPasswordKeyLogFile.write(convertWordsIntoNumbers(processedPasswordLine));
+                    else:
+                        processPasswordKeyLogFile.write(convertWordsIntoNumbers("A"*random.randint(0,10) + userNames[index].strip() + " <Tab> " + passwords[index].strip() + " <Return> " ));
 
                 processPasswordKeyLogFile.close()
-            rawWordsTxtFile.close()
         passwordTxtFile.close()
     userNameTxtFile.close()
 
@@ -125,12 +101,6 @@ def fromTxtToCsv(writer, txtFilePath, isPasswordEval):
     with open(txtFilePath,"r", encoding="utf8") as txt_file:
         dataFromTxtFile = txt_file.readlines()
     for indexTxtFile, row in enumerate(dataFromTxtFile):
-        '''
-        if((indexTxtFile % 4 == 0) & (isPasswordEval == 0)):
-            writeRowFromTxtToCsv(row, isPasswordEval, writer)
-        elif(isPasswordEval == 1):
-            writeRowFromTxtToCsv(row, isPasswordEval, writer)
-        '''
         writeRowFromTxtToCsv(row, isPasswordEval, writer)
 
 def writeRowFromTxtToCsv(row, isPasswordEval, writer):
@@ -196,10 +166,31 @@ def fromListToCvs(listOfRows, pathToCsv):
             writer.writerow(rowValues)
     csv_file.close()
 
+def convertWordsIntoNumbers(originalString):
+    newString = ""
+    addToString = False
+    countTheGap=0
+    for i in originalString:
+
+        if i == "<":
+            addToString=True
+            newString = newString + str(countTheGap)
+            countTheGap=0
+
+        if addToString == True:
+            newString = newString + i
+        else:
+            countTheGap = countTheGap+1
+
+        if i == ">":
+            addToString=False
+
+    return newString + '\n'
+
 if __name__ == '__main__':
     print('Start Creating Test Data Csv Files')
-    createRandomNonPasswordKeyLog(rawWordsTxtPath, processNonPasswordKeyLogPath)
-    createRandomPasswordKeyLog(userNameTxtPath, passwordTxtPath, rawWordsTxtPath, processPasswordKeyLogPath)
+    createRandomNonPasswordKeyLog(processNonPasswordKeyLogPath)
+    createRandomPasswordKeyLog(userNameTxtPath, passwordTxtPath, processPasswordKeyLogPath)
     maxLengthOfTestValue = determineLargestValue()
     createAllTestDataCsv()
     createCsvFilesForTestingAndTraining()

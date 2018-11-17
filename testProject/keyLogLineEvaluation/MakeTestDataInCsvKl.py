@@ -42,6 +42,7 @@ def createRandomNonPasswordKeyLog(rawDataTxtPath, processDataTxtPath):
                     rawDataToBeAdded = rawDataToBeAddedFirstChunk + rawDataToBeAddedSecondChunk + rawDataToBeAddedThirdChunk;
                     rowsAdded = rowsAdded + 1
                     processDataTxt.write(rawDataToBeAdded)
+                    #processDataTxt.write(row)
                     if(rowsAdded == 32000):
                         break
         processDataTxt.close()
@@ -97,6 +98,7 @@ def createRandomPasswordKeyLog(userNameTxtPath, passwordTxtPath, rawWordsTxtPath
                             processedPasswordLine =  processedPasswordLineChunk1 + processedPasswordLineChunk2 + processedPasswordLineChunk3
                             rowItemsUsed.append(rawWords[index].strip())
                             processPasswordKeyLogFile.write(processedPasswordLine);
+                            #processPasswordKeyLogFile.write(rawWords[index]);
 
 
 

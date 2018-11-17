@@ -39,7 +39,30 @@ def evaluateSingleWord():
     root.update()
 
 def evaluateLogLine():
-    print('Hi')
+    json_file = open(modelJsonLogLine, 'r')
+    loaded_model_json = json_file.read()
+    json_file.close()
+    model = model_from_json(loaded_model_json)
+    model.load_weights(modelH5LogLine, by_name=False)
+    model.compile(loss='sparse_categorical_crossentropy',
+                  optimizer=tf.train.AdamOptimizer(), metrics=['accuracy'])
+    english = []
+    for index, i in enumerate(userInputLogLine.get()):
+        english.append(ord(i))
+    for s in range(len(english),193):
+        english.append(0)
+
+    englishList = []
+    englishList.append(english)
+    englishListNp = np.array(englishList)
+
+    prediction1 = model.predict(englishListNp)
+
+    if(np.argmax(prediction1[0]) == 0):
+        resultLabelUserInputLogLine.set("Does NOT contain a password")
+    else:
+        resultLabelUserInputLogLine.set("Does contain password")
+    root.update()
 
 root = Tk()
 
@@ -68,7 +91,6 @@ Label(root, text="Results").grid(row=5, column=0, sticky=W)
 resultLabelUserInputLogLine = StringVar()
 resultValueUserInputLogLine = Label(root, textvariable=resultLabelUserInputLogLine)
 resultValueUserInputLogLine.grid(row=5, column=1, sticky=W)
-
 
 root.mainloop()
 

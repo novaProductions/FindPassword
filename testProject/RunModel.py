@@ -11,7 +11,7 @@ basePathLogLine = 'keyLogLineEvaluation/data/'
 modelH5LogLine = basePathLogLine + 'model.h5'
 modelJsonLogLine = basePathLogLine + 'model.json'
 
-def evaluateSingleWord():
+def evaluateSingleWord(strToBeEvaluated):
 
     json_file = open(modelJsonSingleWord, 'r')
     loaded_model_json = json_file.read()
@@ -21,7 +21,7 @@ def evaluateSingleWord():
     model.compile(loss='sparse_categorical_crossentropy',
                   optimizer=tf.train.AdamOptimizer(), metrics=['accuracy'])
     english = []
-    for index, i in enumerate(userInputSingleTxt.get()):
+    for index, i in enumerate(strToBeEvaluated):
         english.append(ord(i))
     for s in range(len(english),40):
         english.append(0)
@@ -30,13 +30,20 @@ def evaluateSingleWord():
     englishList.append(english)
     englishListNp = np.array(englishList)
 
-    prediction1 = model.predict(englishListNp)
+    prediction = model.predict(englishListNp)
+    return np.argmax(prediction[0])
 
-    if(np.argmax(prediction1[0]) == 0):
+
+def evaluateForSingleWordTest():
+    prediction = evaluateSingleWord(userInputSingleTxt.get())
+    printForSingleWordTest(prediction)
+    root.update()
+
+def printForSingleWordTest(prediction):
+    if(prediction == 0):
         resultLabelUserInputSingleTxt.set("NOT a password")
     else:
         resultLabelUserInputSingleTxt.set("This is a password")
-    root.update()
 
 def evaluateLogLine():
     json_file = open(modelJsonLogLine, 'r')
@@ -84,6 +91,38 @@ def convertWordsIntoNumbers(originalString):
 
     return newString + '\n'
 
+
+
+def evaluateEntireKeyLogFile():
+
+    listOfWordsForEvaulation = []
+    with open(userInputKeyLogFilePath.get(),"r", encoding="utf8") as txt_file:
+        dataFromTxtFile = txt_file.readlines()
+        for index, row in enumerate(dataFromTxtFile):
+            if(len(row) > 1):
+                for wordInRow in row.split():
+                    prediction = evaluateSingleWord(wordInRow)
+                    if(prediction == 1):
+                        listOfWordsForEvaulation.append(WordFromKeyLog(str(index), wordInRow))
+
+    headerValue = StringVar()
+    headerLabel = Label(root, textvariable=headerValue)
+    headerLabel.grid(row=9, column=0, sticky=W)
+    headerValue.set("Row #     Word")
+
+    for index, i in enumerate(listOfWordsForEvaulation):
+        rowValue = StringVar()
+        rowLabel = Label(root, textvariable=rowValue)
+        rowLabel.grid(row=10+index, column=0, sticky=W)
+        rowValue.set(i.row + "              " + i.value)
+
+
+class WordFromKeyLog():
+
+    def __init__(self,row,value):
+        self.row = row
+        self.value = value
+
 root = Tk()
 
 
@@ -91,9 +130,9 @@ root.title("Determine Passwords")
 #Validate a single word as password or not
 Label(root, text="Enter in single text/phrase to if is a password:").grid(row=0, sticky=W)
 
-userInputSingleTxt = Entry(root)
+userInputSingleTxt = Entry(root, width=50)
 userInputSingleTxt.grid(row=1,column=0, sticky=W)
-Button(root, text="Submit", command=evaluateSingleWord).grid(row=1, column=1, sticky=W)
+Button(root, text="Submit", command=evaluateForSingleWordTest).grid(row=1, column=1, sticky=W)
 
 Label(root, text="Results").grid(row=2, column=0, sticky=W)
 resultLabelUserInputSingleTxt = StringVar()
@@ -103,7 +142,7 @@ resultValueUserInputSingleTxt.grid(row=2, column=1, sticky=W)
 #Validate a single log line if it has a password or not
 Label(root, text="Enter in single keylog line to if contains a password:").grid(row=3, sticky=W)
 
-userInputLogLine = Entry(root)
+userInputLogLine = Entry(root, width=50)
 userInputLogLine.grid(row=4,column=0, sticky=W)
 Button(root, text="Submit", command=evaluateLogLine).grid(row=4, column=1, sticky=W)
 
@@ -111,6 +150,18 @@ Label(root, text="Results").grid(row=5, column=0, sticky=W)
 resultLabelUserInputLogLine = StringVar()
 resultValueUserInputLogLine = Label(root, textvariable=resultLabelUserInputLogLine)
 resultValueUserInputLogLine.grid(row=5, column=1, sticky=W)
+
+#Validate entire key log text file
+Label(root, text="Enter in path to keylog txt file to see where passwords are:").grid(row=6, sticky=W)
+
+userInputKeyLogFilePath = Entry(root, width=50)
+userInputKeyLogFilePath.grid(row=7,column=0, sticky=W)
+Button(root, text="Submit", command=evaluateEntireKeyLogFile).grid(row=7, column=1, sticky=W)
+
+Label(root, text="Results").grid(row=8, column=0, sticky=W)
+resultLabelKeyLogFile = StringVar()
+resultValueKeyLogFile = Label(root, textvariable=resultLabelKeyLogFile)
+resultValueKeyLogFile.grid(row=8, column=1, sticky=W)
 
 root.mainloop()
 

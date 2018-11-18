@@ -45,7 +45,7 @@ def printForSingleWordTest(prediction):
     else:
         resultLabelUserInputSingleTxt.set("This is a password")
 
-def evaluateLogLine():
+def evaluateLogLine(logLineToBeEvaluated):
     json_file = open(modelJsonLogLine, 'r')
     loaded_model_json = json_file.read()
     json_file.close()
@@ -54,7 +54,7 @@ def evaluateLogLine():
     model.compile(loss='sparse_categorical_crossentropy',
                   optimizer=tf.train.AdamOptimizer(), metrics=['accuracy'])
     english = []
-    for index, i in enumerate(convertWordsIntoNumbers(userInputLogLine.get())):
+    for index, i in enumerate(convertWordsIntoNumbers(logLineToBeEvaluated)):
         english.append(ord(i))
     for s in range(len(english),53):
         english.append(0)
@@ -62,13 +62,19 @@ def evaluateLogLine():
     englishList.append(english)
     englishListNp = np.array(englishList)
 
-    prediction1 = model.predict(englishListNp)
+    prediction = model.predict(englishListNp)
+    return np.argmax(prediction[0])
 
-    if(np.argmax(prediction1[0]) == 0):
+def evaluateForSingleLogLineTest():
+    prediction = evaluateLogLine(userInputLogLine.get())
+    printForSingleLogLineTest(prediction)
+    root.update()
+
+def printForSingleLogLineTest(prediction):
+    if(prediction == 0):
         resultLabelUserInputLogLine.set("Does NOT contain a password")
     else:
         resultLabelUserInputLogLine.set("Does contain password")
-    root.update()
 
 def convertWordsIntoNumbers(originalString):
     newString = ""
@@ -94,30 +100,46 @@ def convertWordsIntoNumbers(originalString):
 
 
 def evaluateEntireKeyLogFile():
+    #evaluateEntireKeyLogFileOnlyLines()
+    evaluateEntireKeyLogFileOnlySingleWord()
+    root.update()
 
-    listOfWordsForEvaulation = []
+def evaluateEntireKeyLogFileOnlyLines():
+    listOfLinesWithPassword = []
+    with open(userInputKeyLogFilePath.get(),"r", encoding="utf8") as txt_file:
+        dataFromTxtFile = txt_file.readlines()
+        for index, row in enumerate(dataFromTxtFile):
+            if(len(row) > 1):
+                prediction = evaluateLogLine(row)
+                if(prediction == 1):
+                    listOfLinesWithPassword.append(ItemFromKeyLog(str(index), row))
+    printOutResultsForEntireLogEvaluation(listOfLinesWithPassword, "Line")
+
+def evaluateEntireKeyLogFileOnlySingleWord():
+    listOfWordsThatArePasswords = []
     with open(userInputKeyLogFilePath.get(),"r", encoding="utf8") as txt_file:
         dataFromTxtFile = txt_file.readlines()
         for index, row in enumerate(dataFromTxtFile):
             if(len(row) > 1):
                 for wordInRow in row.split():
                     prediction = evaluateSingleWord(wordInRow)
-                    if(prediction == 1):
-                        listOfWordsForEvaulation.append(WordFromKeyLog(str(index), wordInRow))
+                    if(prediction == 1 and wordInRow != "<Back>" and wordInRow != "<Return>" and wordInRow != "<Tab>"):
+                        listOfWordsThatArePasswords.append(ItemFromKeyLog(str(index), wordInRow))
+    printOutResultsForEntireLogEvaluation(listOfWordsThatArePasswords, "Word")
 
+def printOutResultsForEntireLogEvaluation(listOfPositives, category):
     headerValue = StringVar()
     headerLabel = Label(root, textvariable=headerValue)
     headerLabel.grid(row=9, column=0, sticky=W)
-    headerValue.set("Row #     Word")
+    headerValue.set("Row #     " + category)
 
-    for index, i in enumerate(listOfWordsForEvaulation):
+    for index, i in enumerate(listOfPositives):
         rowValue = StringVar()
         rowLabel = Label(root, textvariable=rowValue)
         rowLabel.grid(row=10+index, column=0, sticky=W)
         rowValue.set(i.row + "              " + i.value)
 
-
-class WordFromKeyLog():
+class ItemFromKeyLog():
 
     def __init__(self,row,value):
         self.row = row
@@ -144,7 +166,7 @@ Label(root, text="Enter in single keylog line to if contains a password:").grid(
 
 userInputLogLine = Entry(root, width=50)
 userInputLogLine.grid(row=4,column=0, sticky=W)
-Button(root, text="Submit", command=evaluateLogLine).grid(row=4, column=1, sticky=W)
+Button(root, text="Submit", command=evaluateForSingleLogLineTest).grid(row=4, column=1, sticky=W)
 
 Label(root, text="Results").grid(row=5, column=0, sticky=W)
 resultLabelUserInputLogLine = StringVar()

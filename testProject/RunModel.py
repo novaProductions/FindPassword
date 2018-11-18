@@ -1,4 +1,5 @@
 from tkinter import *
+import tkinter.ttk as ttk
 import numpy as np
 import tensorflow as tf
 from keras.models import model_from_json
@@ -97,23 +98,38 @@ def convertWordsIntoNumbers(originalString):
 
     return newString + '\n'
 
-
-
 def evaluateEntireKeyLogFile():
-    #evaluateEntireKeyLogFileOnlyLines()
-    evaluateEntireKeyLogFileOnlySingleWord()
+    if(optionForCalcualtion.get() == "Only Words 85% accuracy"):
+        printResultsForWordsOnly(evaluateEntireKeyLogFileOnlySingleWord())
+    elif(optionForCalcualtion.get() == "Only Entire Lines 95% accuracy"):
+        printResultsForLineOnly(evaluateEntireKeyLogFileOnlyLines())
+    else:
+        listOfWordsThatArePasswords = evaluateEntireKeyLogFileOnlySingleWord()
+        listOfLinesWithPassword = evaluateEntireKeyLogFileOnlyLines()
+        rootShowBoth = Tk()
+        rootShowBoth.title("Results for both a word and line match 99% accuracy")
+        Label(rootShowBoth, text="Row #").grid(row=0, column=0, sticky=NW)
+        Label(rootShowBoth, text="Word").grid(row=0, column=1, sticky=NW)
+        Label(rootShowBoth, text="Line").grid(row=0, column=2, sticky=NW)
+
+        for index, i in enumerate(listOfWordsThatArePasswords):
+            if(i.row in listOfLinesWithPassword):
+                Label(rootShowBoth, text=i.row).grid(row=1+index, column=0, sticky=NW)
+                Label(rootShowBoth, text=i.value).grid(row=1+index, column=1, sticky=NW)
+                Label(rootShowBoth, text=listOfLinesWithPassword[i.row]).grid(row=1+index, column=2, sticky=NW)
+        rootShowBoth.update()
     root.update()
 
 def evaluateEntireKeyLogFileOnlyLines():
-    listOfLinesWithPassword = []
+    listOfLinesWithPassword = {}
     with open(userInputKeyLogFilePath.get(),"r", encoding="utf8") as txt_file:
         dataFromTxtFile = txt_file.readlines()
         for index, row in enumerate(dataFromTxtFile):
             if(len(row) > 1):
                 prediction = evaluateLogLine(row)
                 if(prediction == 1):
-                    listOfLinesWithPassword.append(ItemFromKeyLog(str(index), row))
-    printOutResultsForEntireLogEvaluation(listOfLinesWithPassword, "Line")
+                    listOfLinesWithPassword[str(index)] = row
+    return listOfLinesWithPassword
 
 def evaluateEntireKeyLogFileOnlySingleWord():
     listOfWordsThatArePasswords = []
@@ -125,19 +141,30 @@ def evaluateEntireKeyLogFileOnlySingleWord():
                     prediction = evaluateSingleWord(wordInRow)
                     if(prediction == 1 and wordInRow != "<Back>" and wordInRow != "<Return>" and wordInRow != "<Tab>"):
                         listOfWordsThatArePasswords.append(ItemFromKeyLog(str(index), wordInRow))
-    printOutResultsForEntireLogEvaluation(listOfWordsThatArePasswords, "Word")
+    return listOfWordsThatArePasswords
 
-def printOutResultsForEntireLogEvaluation(listOfPositives, category):
-    headerValue = StringVar()
-    headerLabel = Label(root, textvariable=headerValue)
-    headerLabel.grid(row=9, column=0, sticky=W)
-    headerValue.set("Row #     " + category)
+def printResultsForWordsOnly(listOfPositives):
+    rootOnlyWord = Tk()
+    rootOnlyWord.title("Results for only words that are passwords 85% accuracy")
+    Label(rootOnlyWord, text="Row #").grid(row=0, column=0, sticky=NW)
+    Label(rootOnlyWord, text="Word").grid(row=0, column=1, sticky=NW)
 
     for index, i in enumerate(listOfPositives):
-        rowValue = StringVar()
-        rowLabel = Label(root, textvariable=rowValue)
-        rowLabel.grid(row=10+index, column=0, sticky=W)
-        rowValue.set(i.row + "              " + i.value)
+        Label(rootOnlyWord, text=i.row).grid(row=1+index, column=0, sticky=NW)
+        Label(rootOnlyWord, text=i.value).grid(row=1+index, column=1, sticky=NW)
+    rootOnlyWord.update()
+
+
+def printResultsForLineOnly(listOfPositives):
+    rootOnlyLine = Tk()
+    rootOnlyLine.title("Results for only lines that contain a password 95% accuracy")
+    Label(rootOnlyLine, text="Row #").grid(row=0, column=0, sticky=NW)
+    Label(rootOnlyLine, text="Line Content").grid(row=0, column=1, sticky=NW)
+
+    for index, i in enumerate(listOfPositives):
+        Label(rootOnlyLine, text=i).grid(row=1+index, column=0, sticky=NW)
+        Label(rootOnlyLine, text=listOfPositives[i]).grid(row=1+index, column=1, sticky=NW)
+    rootOnlyLine.update()
 
 class ItemFromKeyLog():
 
@@ -146,7 +173,6 @@ class ItemFromKeyLog():
         self.value = value
 
 root = Tk()
-
 
 root.title("Determine Passwords")
 #Validate a single word as password or not
@@ -180,10 +206,12 @@ userInputKeyLogFilePath = Entry(root, width=50)
 userInputKeyLogFilePath.grid(row=7,column=0, sticky=W)
 Button(root, text="Submit", command=evaluateEntireKeyLogFile).grid(row=7, column=1, sticky=W)
 
-Label(root, text="Results").grid(row=8, column=0, sticky=W)
-resultLabelKeyLogFile = StringVar()
-resultValueKeyLogFile = Label(root, textvariable=resultLabelKeyLogFile)
-resultValueKeyLogFile.grid(row=8, column=1, sticky=W)
+
+optionForCalcualtion = StringVar()
+optionForCalcualtion.set("Both Words and Lines 99% accuracy")
+comboBox = ttk.Combobox(root, width=46, textvariable=optionForCalcualtion)
+comboBox['values'] = ["Only Words 85% accuracy", "Only Entire Lines 95% accuracy", "Both Words and Lines 99% accuracy"]
+comboBox.grid(row=8, column=0)
 
 root.mainloop()
 

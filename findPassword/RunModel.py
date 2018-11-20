@@ -57,7 +57,7 @@ def evaluateLogLine(logLineToBeEvaluated):
     english = []
     for index, i in enumerate(convertWordsIntoNumbers(logLineToBeEvaluated)):
         english.append(ord(i))
-    for s in range(len(english),53):
+    for s in range(len(english),48):
         english.append(0)
     englishList = []
     englishList.append(english)
@@ -95,7 +95,8 @@ def convertWordsIntoNumbers(originalString):
 
         if i == ">":
             addToString=False
-
+    if newString == "":
+        newString = str(countTheGap)
     return newString + '\n'
 
 def evaluateEntireKeyLogFile():
@@ -210,7 +211,7 @@ Button(root, text="Submit", command=evaluateEntireKeyLogFile).grid(row=7, column
 optionForCalcualtion = StringVar()
 optionForCalcualtion.set("Both Words and Lines 99% accuracy")
 comboBox = ttk.Combobox(root, width=46, textvariable=optionForCalcualtion)
-comboBox['values'] = ["Only Words 85% accuracy", "Only Entire Lines 95% accuracy", "Both Words and Lines 99% accuracy"]
+comboBox['values'] = ["Only Words 85% accuracy", "Only Entire Lines 96% accuracy", "Both Words and Lines 99% accuracy"]
 comboBox.grid(row=8, column=0)
 
 root.mainloop()

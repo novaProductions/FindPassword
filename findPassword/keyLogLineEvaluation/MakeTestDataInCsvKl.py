@@ -14,13 +14,13 @@ maxLengthOfTestValue = 0
 
 def createRandomNonPasswordKeyLog(processDataTxtPath):
 
-    meterpeterDict = {1:" <Back> ", 2 : " <Tab> ", 3: " <Return>"}
+    meterpeterDict = {1:" <Tab> ", 2 : " <Back> ", 3: " <Return>"}
     with open(processDataTxtPath,"w", encoding="utf8") as processDataTxt:
         for index in range(0,414712):
-            if(index % 6 == 0):
-                processDataTxt.write(convertWordsIntoNumbers("A"*random.randint(0,20) + meterpeterDict[random.randint(1,3)] + "A"*random.randint(5,20) + meterpeterDict[random.randint(1,3)]))
-            elif(index % 5 != 0):
-                processDataTxt.write(convertWordsIntoNumbers("A"*random.randint(0,50) + meterpeterDict[2] + "A"*random.randint(30,100) + meterpeterDict[3] + "A"*random.randint(0,50)))
+            if(index % 3 == 0):
+                processDataTxt.write(convertWordsIntoNumbers("A"*random.randint(5,15) + meterpeterDict[random.randint(2,3)] + "A"*random.randint(5,15) + meterpeterDict[random.randint(1,2)]))
+            elif(index % 2 != 0):
+                processDataTxt.write(convertWordsIntoNumbers("A"*random.randint(50,100)))
             else:
                 firstValue = meterpeterDict[random.randint(1,3)];
                 secondValue = meterpeterDict[random.randint(1,3)];
@@ -30,9 +30,9 @@ def createRandomNonPasswordKeyLog(processDataTxtPath):
                 numberOfSecondValue = random.randint(0,2);
                 numberOfThirdValue = random.randint(0,1);
 
-                rawDataToBeAddedFirstChunk = "A"*random.randint(0,50) + firstValue * numberOfFirstValue + "A"*random.randint(0,50);
-                rawDataToBeAddedSecondChunk = "A"*random.randint(0,50) + secondValue * numberOfSecondValue + "A"*random.randint(0,50);
-                rawDataToBeAddedThirdChunk = "A"*random.randint(0,50) + thirdValue * numberOfThirdValue + "A"*random.randint(0,50) ;
+                rawDataToBeAddedFirstChunk = "A"*random.randint(0,10) + firstValue * numberOfFirstValue + "A"*random.randint(0,10);
+                rawDataToBeAddedSecondChunk = "A"*random.randint(0,10) + secondValue * numberOfSecondValue + "A"*random.randint(0,10);
+                rawDataToBeAddedThirdChunk = "A"*random.randint(0,10) + thirdValue * numberOfThirdValue + "A"*random.randint(0,10) ;
                 rawDataToBeAdded = rawDataToBeAddedFirstChunk + rawDataToBeAddedSecondChunk + rawDataToBeAddedThirdChunk;
 
                 processDataTxt.write(convertWordsIntoNumbers(rawDataToBeAdded))
@@ -50,34 +50,14 @@ def createRandomPasswordKeyLog(userNameTxtPath, passwordTxtPath, processPassword
                 maxNumberOfTestCases = min(maxLengthList)
 
                 for index in range(0,maxNumberOfTestCases-1):
-                    if(index % 5 != 0):
-                        meterpeterDict = {1:" <Back> ", 2 : " <Tab> ", 3: " <Return> "}
-                        passwordMeterpeterDict = {1:userNames[index].strip()+passwords[index].strip()+ " <Return> "}
-                        passwordMeterpeterDict[2] = userNames[index].strip() + " <Tab> " + passwords[index].strip() + " <Return> "
-                        passwordMeterpeterDict[3] = userNames[index][0:int(len(userNames[index])/2)].strip() + " <Back> <Back> " + userNames[index][int(len(userNames[index])/2): int(len(userNames[index]))].strip()+ " <Tab> " + passwords[index].strip() + " <Return> "
-                        passwordMeterpeterDict[4] = userNames[index].strip()+ " <Tab> " + passwords[index][0:int(len(passwords[index])/2)].strip() + " <Back> <Back> "+ passwords[index][int(len(passwords[index])/2):int(len(passwords[index]))].strip()+ " <Return> "
-                        passwordInfirstOrSecondSection = random.randint(0,2)
+                    passwordMeterpeterDict = {}
+                    passwordMeterpeterDict[0] = userNames[index].strip()+passwords[index].strip()+ " <Return> "
+                    passwordMeterpeterDict[1] = "A"*random.randint(0,10) + userNames[index].strip() + " <Tab> " + passwords[index].strip() + " <Return> "
+                    passwordMeterpeterDict[2] = "A"*random.randint(0,10) + userNames[index][0:int(len(userNames[index])/2)].strip() + random.randint(1,3) * "<Back> " + userNames[index][int(len(userNames[index])/2): int(len(userNames[index]))].strip()+ " <Tab> " + passwords[index].strip() + " <Return> "
+                    passwordMeterpeterDict[3] = "A"*random.randint(0,10) + userNames[index].strip()+ " <Tab> " + passwords[index][0:int(len(passwords[index])/2)].strip() +  random.randint(1,3) * "<Back> "+ passwords[index][int(len(passwords[index])/2):int(len(passwords[index]))].strip()+ " <Return> "
+                    passwordMeterpeterDict[4] = convertWordsIntoNumbers(userNames[index].strip() + " <Tab> " + passwords[index].strip() + " <Return> " )
 
-                        if(passwordInfirstOrSecondSection==0):
-                            item1= str(passwordMeterpeterDict[random.randint(1,4)])
-                            item2= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
-                            item3= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
-                        elif(passwordInfirstOrSecondSection==1):
-                            item2= str(passwordMeterpeterDict[random.randint(1,4)])
-                            item1= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
-                            item3= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
-                        elif(passwordInfirstOrSecondSection==2):
-                            item3= str(passwordMeterpeterDict[random.randint(1,4)])
-                            item1= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
-                            item2= str(meterpeterDict[random.randint(1,3)]) * random.randint(0,1)
-
-                            processedPasswordLineChunk1 = "A"*random.randint(0,50) + item1 + "A"*random.randint(0,50)
-                            processedPasswordLineChunk2 = "A"*random.randint(0,50) + item2 + "A"*random.randint(0,50)
-                            processedPasswordLineChunk3 = "A"*random.randint(0,50) + item3 + "A"*random.randint(0,50)
-                            processedPasswordLine =  processedPasswordLineChunk1 + processedPasswordLineChunk2 + processedPasswordLineChunk3
-                            processPasswordKeyLogFile.write(convertWordsIntoNumbers(processedPasswordLine));
-                    else:
-                        processPasswordKeyLogFile.write(convertWordsIntoNumbers("A"*random.randint(0,10) + userNames[index].strip() + " <Tab> " + passwords[index].strip() + " <Return> " ));
+                    processPasswordKeyLogFile.write(convertWordsIntoNumbers(passwordMeterpeterDict[random.randint(0,4)]));
 
                 processPasswordKeyLogFile.close()
         passwordTxtFile.close()
@@ -184,6 +164,9 @@ def convertWordsIntoNumbers(originalString):
 
         if i == ">":
             addToString=False
+
+    if newString == "":
+        newString = str(countTheGap)
 
     return newString + '\n'
 

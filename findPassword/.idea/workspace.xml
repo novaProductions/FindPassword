@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="70281acf-880c-4f6b-b3a3-45895da41e63" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/FindPassword.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/RunModel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/MakeTestDataInCsvKl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/TrainModelKl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/data/allTestData.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/data/model.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/data/model.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/data/nonPasswordLines.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/data/passwordLines.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/data/rockyou.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/data/testDataCsv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/data/trainingDataCsv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/data/usernames.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/keyLogLineEvaluation/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/singleWordEvaluation/MakeTestDataInCsvSw.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/singleWordEvaluation/TrainModelSw.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/singleWordEvaluation/data/allTestData.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/singleWordEvaluation/data/model.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/singleWordEvaluation/data/model.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/singleWordEvaluation/data/rockyou.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/singleWordEvaluation/data/testDataCsv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/singleWordEvaluation/data/trainingDataCsv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testProject/singleWordEvaluation/data/unix-english.txt" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-603942115">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="3" />
+          <entry key="txt" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Python" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="25" />
+          <entry key="py" value="83" />
+          <entry key="txt" value="35" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="60" />
+          <entry key="Python" value="83" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1772148805">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.20" value="2" />
+          <entry key="project.open.time.24" value="3" />
+          <entry key="project.open.time.25" value="3" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="checkpoint" value="2" />
+          <entry key="csv" value="2" />
+          <entry key="iml" value="1" />
+          <entry key="json" value="1" />
+          <entry key="py" value="21" />
+          <entry key="txt" value="20" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JSON" value="1" />
+          <entry key="PLAIN_TEXT" value="24" />
+          <entry key="Python" value="21" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="301" />
+          <entry key="py" value="14296" />
+          <entry key="txt" value="152" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="453" />
+          <entry key="Python" value="14296" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="916598457">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="md" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PLAIN_TEXT" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="md" value="808" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="808" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/passwordLines.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/nonPasswordLines.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/singleWordEvaluation/MakeTestDataInCsvSw.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="45" column="29" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RunModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="104" column="67" selection-start-line="104" selection-start-column="67" selection-end-line="104" selection-end-column="67" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+                <marker date="1542579869470" expanded="true" signature="1200:1321" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="32" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FindPassword.iml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/TrainModelKl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="952">
+              <caret line="60" column="19" selection-start-line="57" selection-end-line="68" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/singleWordEvaluation/TrainModelSw.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="45" column="36" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>plot_value_array</find>
+      <find>hdf5</find>
+      <find>txt_file</find>
+      <find>resultLabelKeyLogFile</find>
+      <find>resultValueKeyLogFile</find>
+      <find>resultLabelUserInputSingleTxt</find>
+      <find>printResultsForWordsOnly</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/executable/testProject.py" />
+        <option value="$PROJECT_DIR$/executable/TrainModel.py" />
+        <option value="$PROJECT_DIR$/executable/RunModel.py" />
+        <option value="$PROJECT_DIR$/executable/MakeTestDataInCsv.py" />
+        <option value="$PROJECT_DIR$/executable/SingleWordEvaluation/MakeTestDataInCsv.py" />
+        <option value="$PROJECT_DIR$/executable/singleWordEvaluation/TrainModel.py" />
+        <option value="$PROJECT_DIR$/executable/singleWordEvaluation/MakeTestDataInCsv.py" />
+        <option value="$PROJECT_DIR$/executable/singleWordEvaluation/RunModel.py" />
+        <option value="$PROJECT_DIR$/singleWordEvaluation/TrainModel.py" />
+        <option value="$PROJECT_DIR$/keyLogLineEvaluation/MakeTestDataInCsv.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/singleWordEvaluation/MakeTestDataInCsvSw.py" />
+        <option value="$PROJECT_DIR$/keyLogLineEvaluation/TestFile.py" />
+        <option value="$PROJECT_DIR$/keyLogLineEvaluation/MakeTestDataInCsvKl.py" />
+        <option value="$PROJECT_DIR$/keyLogLineEvaluation/TrainModelKl.py" />
+        <option value="$PROJECT_DIR$/keyLogLineEvaluation/test.py" />
+        <option value="$PROJECT_DIR$/RunModel.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1363" />
+    <option name="y" value="83" />
+    <option name="width" value="2297" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="findPassword" type="b2602c69:ProjectViewProjectNode" />
+              <item name="findPassword" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542674753810" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dragon\Desktop\Mikes Stuff\Keyloggin\FindPassword\testProject\keyLogLineEvaluation" />
+      <recent name="C:\Users\Dragon\Desktop\Mikes Stuff\Keyloggin\FindPassword\testProject\keyLogLineEvaluation\data" />
+      <recent name="C:\Users\Dragon\Desktop\Mikes Stuff\Keyloggin\FindPassword\testProject\executable\singleWordEvaluation\data" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dragon\Desktop\Mikes Stuff\Keyloggin\FindPassword\testProject" />
+      <recent name="C:\Users\Dragon\Desktop\Mikes Stuff\Keyloggin\FindPassword\testProject\executable" />
+      <recent name="C:\Users\Dragon\Desktop\Mikes Stuff\Keyloggin\FindPassword\testProject\executable\SingleWordEvaluation" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.RunModel">
+    <configuration name="MakeTestDataInCsvSw" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FindPassword" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/singleWordEvaluation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/singleWordEvaluation/MakeTestDataInCsvSw.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RunModel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FindPassword" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RunModel.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TrainModelKl" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FindPassword" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/keyLogLineEvaluation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/keyLogLineEvaluation/TrainModelKl.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TrainModelSw" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FindPassword" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/singleWordEvaluation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/singleWordEvaluation/TrainModelSw.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FindPassword" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/keyLogLineEvaluation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/keyLogLineEvaluation/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.RunModel" />
+      <item itemvalue="Python.TrainModelKl" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.MakeTestDataInCsvSw" />
+      <item itemvalue="Python.TrainModelSw" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.RunModel" />
+        <item itemvalue="Python.TrainModelSw" />
+        <item itemvalue="Python.MakeTestDataInCsvSw" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.TrainModelKl" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70281acf-880c-4f6b-b3a3-45895da41e63" name="Default Changelist" comment="" />
+      <created>1540577761461</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1540577761461</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23773988" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5010661" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.3290993" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/allTestDataData.csv" />
+    <entry file="file://$PROJECT_DIR$/rockyou.txt" />
+    <entry file="file://$PROJECT_DIR$/checkpoint" />
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/h5py/_hl/files.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model.json" />
+    <entry file="file://$PROJECT_DIR$/unix-english.txt" />
+    <entry file="file://$PROJECT_DIR$/singleWordEvaluation/data/rockyou.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/singleWordEvaluation/data/unix-english.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/rockyou.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/trainingDataCsv.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/usernames.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/rawWords.txt" />
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/TestFile.py" />
+    <entry file="file://$USER_HOME$/.IdeaIC2018.2/system/python_stubs/-1120166012/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="2877" column="8" selection-start-line="2877" selection-start-column="8" selection-end-line="2877" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/MakeTestDataInCsvKl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/passwordLines.txt">
+      <provider editor-type-id="LargeFileEditor" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/data/nonPasswordLines.txt">
+      <provider editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-102" />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/singleWordEvaluation/MakeTestDataInCsvSw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="32" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindPassword.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keyLogLineEvaluation/TrainModelKl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="60" column="19" selection-start-line="57" selection-end-line="68" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/singleWordEvaluation/TrainModelSw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RunModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="104" column="67" selection-start-line="104" selection-start-column="67" selection-end-line="104" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1542579869470" expanded="true" signature="1200:1321" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Python 3.6 interpreter library</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>Python 3.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>testProject</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

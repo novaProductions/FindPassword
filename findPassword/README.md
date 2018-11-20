@@ -6,7 +6,7 @@ This is a POC to try and identify passwords from  key log file from metasploit
 * Install dependencies, run on root of the project 'pip install -r requirements.txt'
 * Start program, run on root of the project 'python RunModel.py'
 * A GUI should should appear
-![PictureOfGui.PNG][PictureOfGui.PNG]
+![PictureOfGui](PictureOfGui.PNG)
 * Do one of the following tests
 ** Test a password in isolation
 ** Test a line in a key log in isolation

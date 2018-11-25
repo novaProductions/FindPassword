@@ -211,7 +211,7 @@ Button(root, text="Submit", command=evaluateEntireKeyLogFile).grid(row=7, column
 optionForCalcualtion = StringVar()
 optionForCalcualtion.set("Both Words and Lines 99% accuracy")
 comboBox = ttk.Combobox(root, width=46, textvariable=optionForCalcualtion)
-comboBox['values'] = ["Only Words 85% accuracy", "Only Entire Lines 96% accuracy", "Both Words and Lines 99% accuracy"]
+comboBox['values'] = ["Only Words 85% accuracy", "Only Entire Lines 95% accuracy", "Both Words and Lines 99% accuracy"]
 comboBox.grid(row=8, column=0)
 
 root.mainloop()

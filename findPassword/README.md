@@ -1,7 +1,7 @@
 # Purpose
 This is a POC to try and identify passwords from  key log file from metasploit
 
-# Run Project
+# Run Project with GUI
 * You need to install Python 3.6 64-bit as this version of tensorflow only supports Python 3.5/3.6 64-bit
 * Install dependencies, run on root of the project 'pip install -r requirements.txt'
 * Start program, run on root of the project 'python RunModel.py'
@@ -13,6 +13,18 @@ This is a POC to try and identify passwords from  key log file from metasploit
 ** Test an entire key log text file
 *** Can choose 3 options to analyze file
 *** The results come up in a separate window
+
+# Run Project from Comandline
+* You need to install Python 3.6 64-bit as this version of tensorflow only supports Python 3.5/3.6 64-bit
+* Install dependencies, run on root of the project 'pip install -r requirements.txt'
+* Start program, run on root of the project 'python RunModelCmd.py'
+![PictureOfCommandLine](PictureOfCommandLine.PNG)
+* Will be prompted to enter the path of the key log file
+* You then be prompted to enter how you want the key log file to be analyzed
+** WordOnly - Will only evaluate based on each WORD
+** LineOnly - Will only evaluate based on each LINE
+** Skip/Default - Will evaluate based on each word AND line
+
 
 # Structure Of Project
 The project uses to machine learning algorithms.
